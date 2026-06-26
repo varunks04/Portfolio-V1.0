@@ -1,5 +1,6 @@
 # Ignore personal information file
 Latest_Info.txt
+portfolio.rmd
 
 # Ignore common development files
 .DS_Store

@@ -3,799 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Download the latest resume of Varun K S — Software Engineer and AI Developer.">
     <title>Resume | Varun K S</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../static/css/style.css">
-    <style>
-        /* Global Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        /* Ensure black text color */
-        body {
-            color: #000 !important;
-            animation: fadeInUp 0.6s ease-out;
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-        
-        h1, h2, h3, h4, h5, h6, p, li, span {
-            color: #000 !important;
-        }
-        
-        /* Navigation */
-        .navbar {
-            backdrop-filter: blur(10px);
-            background-color: rgba(33, 37, 41, 0.95) !important;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-nav .nav-link {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #2e85e9, #139dd8);
-            transition: width 0.3s ease;
-        }
-        
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 80%;
-        }
-        
-        .navbar-brand {
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-brand:hover {
-            transform: scale(1.05);
-            color: #8b5cf6 !important;
-        }
-        
-        /* Resume Header */
-        .display-4 {
-            color: #1e293b !important;
-            font-weight: 700;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .lead {
-            color: #64748b !important;
-            animation: fadeInUp 0.8s ease-out 0.2s both;
-        }
-        
-        /* Download Buttons */
-        .resume-download {
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
-            border-color: #334155;
-            color: #334155 !important;
-            transition: all 0.3s ease;
-            border-radius: 25px;
-            padding: 12px 30px;
-            font-weight: 500;
-        }
-        
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
-            border-color: #475569;
-            color: #1e293b !important;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(51, 65, 85, 0.2);
-        }
-        
-        .btn-outline-primary {
-            background: linear-gradient(135deg, #fef7f0, #fdf2e9);
-            border-color: #d97706;
-            color: #d97706 !important;
-            border-radius: 25px;
-            padding: 12px 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-outline-primary:hover {
-            background: linear-gradient(135deg, #fdf2e9, #fed7aa);
-            border-color: #ea580c;
-            color: #ea580c !important;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(217, 119, 6, 0.2);
-        }
-        
-        /* Resume Sections */
-        .resume-section {
-            margin-bottom: 50px;
-            animation: slideInLeft 0.8s ease-out;
-            animation-fill-mode: both;
-        }
-        
-        .resume-section h3 {
-            color: #1e293b !important;
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        
-        .resume-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-            border-radius: 2px;
-        }
-        
-        /* Education Card */
-        .education-card {
-            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            transition: all 0.3s ease;
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .education-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
-        }
-        
-        .education-header h4 {
-            color: #1e293b !important;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-        
-        .education-date {
-            color: #64748b !important;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-        
-        .education-degree {
-            color: #475569 !important;
-            font-size: 1.1rem;
-            font-weight: 500;
-        }
-        
-        .education-gpa {
-            color: #10b981 !important;
-            font-weight: 600;
-        }
-        
-        /* Skill Categories */
-        .skill-category {
-            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            transition: all 0.3s ease;
-            height: 100%;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .skill-category h4 {
-            color: #1e293b !important;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
-        }
-        
-        .skill-category i {
-            color: #000000 !important;
-            margin-right: 10px;
-        }
-        
-        .skill-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .skill-list li {
-            color: #475569 !important;
-            padding: 8px 0;
-            position: relative;
-            padding-left: 20px;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-list li::before {
-            content: '•';
-            color: #10b981;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-        
-        .skill-list li:hover {
-            color: #1e293b !important;
-            transform: translateX(5px);
-        }
-        
-        /* Project Cards */
-        .project-card {
-            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #115ed1, #1229d1);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-        }
-        
-        .project-header h4 {
-            color: #1e293b !important;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-        
-        .project-body ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .project-body li {
-            color: #475569 !important;
-            padding: 8px 0;
-            position: relative;
-            padding-left: 25px;
-            line-height: 1.6;
-            transition: all 0.3s ease;
-        }
-        
-        .project-body li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            top: 8px;
-            color: #10b981;
-            font-weight: bold;
-        }
-        
-        .project-body li:hover {
-            color: #1e293b !important;
-            transform: translateX(5px);
-        }
-        
-        /* Tech Stack Badges */
-        .tech-stack {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-        
-        .badge {
-            background: linear-gradient(135deg, #f8fafc, #e2e8f0) !important;
-            color: #334155 !important;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid #cbd5e1;
-            transition: all 0.3s ease;
-        }
-        
-        .badge:hover {
-            background: linear-gradient(135deg, #e2e8f0, #cbd5e1) !important;
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(51, 65, 85, 0.2);
-        }
-        
-        /* Certifications */
-        .certification-item {
-            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 25px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .certification-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(135deg, #10b981, #059669);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .certification-item:hover::before {
-            transform: scaleY(1);
-        }
-        
-        .certification-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .certification-item h4 {
-            color: #1e293b !important;
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        
-        .certification-provider {
-            color: #10b981 !important;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-        
-        .certification-item p:last-child {
-            color: #64748b !important;
-            margin-bottom: 0;
-            line-height: 1.6;
-        }
-        
-        /* Professional Snapshot Section */
-        .professional-snapshot {
-            background: linear-gradient(135deg, #f0f9ff 0%, #dbeafe 100%);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 40px 0 60px 0;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(59, 130, 246, 0.1);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
-            animation: fadeInUp 0.8s ease-out;
-        }
-        
-        .professional-snapshot::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.03) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-        
-        .professional-snapshot h3 {
-            color: #1e293b !important;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .professional-snapshot h3 i {
-            color: #3b82f6 !important;
-            margin-right: 15px;
-            font-size: 1.8rem;
-        }
-        
-        .professional-snapshot > p {
-            color: #475569 !important;
-            font-size: 1.1rem;
-            text-align: center;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .snapshot-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .stat-item {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .stat-item:hover::before {
-            transform: scaleX(1);
-        }
-        
-        .stat-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
-            background: rgba(255, 255, 255, 1);
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #3b82f6 !important;
-            margin-bottom: 8px;
-            display: block;
-            line-height: 1;
-        }
-        
-        .stat-label {
-            color: #1e293b !important;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { 
-                transform: scale(1);
-                opacity: 0.3;
-            }
-            50% { 
-                transform: scale(1.05);
-                opacity: 0.1;
-            }
-        }
-        
-        /* Responsive adjustments for Professional Snapshot */
-        @media (max-width: 768px) {
-            .professional-snapshot {
-                padding: 25px 20px;
-                margin: 30px 0 40px 0;
-            }
-            
-            .professional-snapshot h3 {
-                font-size: 1.6rem;
-            }
-            
-            .snapshot-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .stat-item {
-                padding: 20px 15px;
-            }
-            
-            .stat-number {
-                font-size: 2rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .snapshot-stats {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
-        }
-        
-        .footer-links a {
-            transition: all 0.3s ease;
-            color: #94a3b8 !important;
-        }
-        
-        .footer-links a:hover {
-            transform: translateY(-2px);
-            color: #1349d0 !important;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .btn-lg {
-                display: block;
-                width: 100%;
-                margin-bottom: 15px;
-            }
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation Container -->
     <div id="navigation-container"></div>
 
-    <!-- Resume Section -->
-    <section class="py-5 mt-5">
+    <section class="section page-top">
         <div class="container">
-            <!-- Header Section -->
-            <div class="resume-header text-center">
-                <h1 class="display-4 fw-bold mb-4">My Resume</h1>
-                <p class="lead mb-4">An overview of my skills, education, and experience</p>
-                <div class="resume-download">
-                    <a href="../static/Resume.pdf" class="btn btn-primary btn-lg me-3" target="_blank">
-                        <i class="fas fa-file-pdf me-2"></i>View Resume
-                    </a>
-                    <a href="../static/Resume.pdf" class="btn btn-outline-primary btn-lg" download>
-                        <i class="fas fa-download me-2"></i>Download Resume
-                    </a>
-                </div>
+            <div class="resume-header reveal">
+                <h1 class="section-heading">Resume</h1>
+                <hr class="divider">
+                <p class="section-subtitle">A quick snapshot and downloadable PDFs — detailed experience and projects live on the home page.</p>
             </div>
 
-            <!-- Professional Snapshot -->
-            <div class="professional-snapshot">
-                <h3><i class="fas fa-chart-line me-2"></i>Professional Snapshot</h3>
-                <p>Computer Science student passionate about Software and AI Engineering, with hands-on experience in building scalable applications and AI-driven solutions.</p>
+            <div class="professional-snapshot reveal">
+                <h3><i class="fas fa-chart-line"></i> Professional Snapshot</h3>
+                <p>Software Engineer and AI Developer building backend systems, LLM-integrated products, and scalable automation. B.E. CSE graduate with team leadership experience and a track record of shipping production-grade applications.</p>
                 <div class="snapshot-stats">
                     <div class="stat-item">
-                        <div class="stat-number">7.91</div>
-                        <div class="stat-label">Current CGPA</div>
+                        <div class="stat-number">8.17</div>
+                        <div class="stat-label">CGPA</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Major Projects</div>
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Projects</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">3</div>
+                        <div class="stat-number">4</div>
                         <div class="stat-label">Certifications</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">2026</div>
-                        <div class="stat-label">Expected Graduation</div>
+                        <div class="stat-label">Graduated</div>
                     </div>
                 </div>
             </div>
-            
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <!-- Education Section -->
-                    <div class="resume-section">
-                        <h3><i class="fas fa-graduation-cap me-2"></i>Education</h3>
-                        <div class="education-card">
-                            <div class="education-header">
-                                <h4>JSS Academy of Technical Education</h4>
-                                <span class="education-date">Expected Graduation: July 2026</span>
-                            </div>
-                            <p class="education-degree">BE in Computer Science and Engineering</p>
-                            <p class="education-gpa">CGPA: 7.91 (Till 6th semester)</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Skills Section -->
-                    <div class="resume-section">
-                        <h3><i class="fas fa-code me-2"></i>Technical Skills</h3>
-                        <div class="skills-grid">
-                            <div class="skill-category">
-                                <h4><i class="fas fa-laptop-code"></i> Programming Languages</h4>
-                                <ul class="skill-list">
-                                    <li>C</li>
-                                    <li>C++</li>
-                                    <li>Python</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4><i class="fas fa-brain"></i> Core CS Concepts</h4>
-                                <ul class="skill-list">
-                                    <li>Data Structures & Algorithms</li>
-                                    <li>Object-Oriented Programming</li>
-                                    <li>Operating Systems</li>
-                                    <li>Database Management Systems</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4><i class="fab fa-python"></i> Python Ecosystem</h4>
-                                <ul class="skill-list">
-                                    <li>NumPy & Pandas</li>
-                                    <li>Matplotlib & Seaborn</li>
-                                    <li>Scikit-learn</li>
-                                    <li>TensorFlow (beginner)</li>
-                                    <li>Flask Framework</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4><i class="fas fa-database"></i> Databases & Backend</h4>
-                                <ul class="skill-list">
-                                    <li>MySQL & PostgreSQL</li>
-                                    <li>SQLite</li>
-                                    <li>REST APIs</li>
-                                    <li>SQL Integration</li>
-                                </ul>
-                            </div>
-                            <div class="skill-category">
-                                <h4><i class="fas fa-tools"></i> Development Tools</h4>
-                                <ul class="skill-list">
-                                    <li>Git & GitHub</li>
-                                    <li>Linux Environment</li>
-                                    <li>VS Code</li>
-                                    <li>Google Colab & Jupyter</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Projects Section -->
-                    <div class="resume-section">
-                        <h3><i class="fas fa-project-diagram me-2"></i>Key Projects</h3>
-                        
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h4>College Placement Management System (Ongoing)</h4>
-                            </div>
-                            <div class="project-body">
-                                <ul>
-                                    <li>A full-stack platform that streamlines college placement workflows for students, faculty, and admins</li>
-                                    <li>Features include job postings, student profiles, drive tracking, and an admin dashboard with real-time control</li>
-                                    <li>Integrated real-time statistics, student profiles, job postings, and alumni networks</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <span class="badge">React.js</span>
-                                    <span class="badge">TypeScript</span>
-                                    <span class="badge">Tailwind CSS</span>
-                                    <span class="badge">PostgreSQL</span>
-                                    <span class="badge">Vite</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h4>FinSight AI — AI-Powered Financial Insights</h4>
-                            </div>
-                            <div class="project-body">
-                                <ul>
-                                    <li>An AI-driven tool that helps investors make informed decisions by analyzing and summarizing financial data</li>
-                                    <li>Collects stock market data, applies ML models, and provides visual forecasts with insights using AI summarization</li>
-                                    <li>Provides real-time financial insights and predictive analytics for better investment decisions</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <span class="badge">Python</span>
-                                    <span class="badge">yFinance</span>
-                                    <span class="badge">Scikit-learn</span>
-                                    <span class="badge">Plotly</span>
-                                    <span class="badge">Pandas</span>
-                                    <span class="badge">Flask</span>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-header">
-                                <h4>Smara AI — Digital AI Diary & Therapist</h4>
-                            </div>
-                            <div class="project-body">
-                                <ul>
-                                    <li>A personal AI system that acts as a digital diary, mindset tracker, and psychological assistant for self-reflection</li>
-                                    <li>Uses AI to analyze emotions, suggest improvements, and deliver personalized journaling prompts and insights</li>
-                                    <li>Features advanced AI-driven insights for personal growth and mental wellness tracking</li>
-                                </ul>
-                                <div class="tech-stack">
-                                    <span class="badge">Python</span>
-                                    <span class="badge">OpenAI API</span>
-                                    <span class="badge">Flask</span>
-                                    <span class="badge">LangChain</span>
-                                    <span class="badge">Git</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Certifications Section -->
-                    <div class="resume-section">
-                        <h3><i class="fas fa-certificate me-2"></i>Professional Certifications</h3>
-                        
-                        <div class="certification-item">
-                            <h4>Meta Database Engineer Professional Certificate</h4>
-                            <p class="certification-provider">Meta, Virtual (Mar 2025)</p>
-                            <p>Covered SQL, Data Modeling, Indexing, Query Optimization, Python for automation, and real-world DB projects.</p>
-                        </div>
-                        
-                        <div class="certification-item">
-                            <h4>100 Days of Code: Complete Python Pro Bootcamp</h4>
-                            <p class="certification-provider">Udemy, Virtual (Mar 2025)</p>
-                            <p>Hands-on Python training including Web Development, Automation, APIs, Data Science, and ML with 100 projects.</p>
-                        </div>
-                        
-                        <div class="certification-item">
-                            <h4>Mastering Data Structures & Algorithms using C and C++</h4>
-                            <p class="certification-provider">Udemy, Virtual (Jan–Mar 2024)</p>
-                            <p>Focused on recursive problem-solving, sorting techniques, and in-depth implementation of data structures.</p>
+
+            <div class="row justify-content-center g-4">
+                <div class="col-lg-6">
+                    <div class="resume-file-card reveal">
+                        <div class="resume-file-badge latest">Latest</div>
+                        <div class="resume-file-icon"><i class="fas fa-file-pdf"></i></div>
+                        <h3>Latest Resume</h3>
+                        <p>Current version reflecting my graduate status, experience, projects, and skills.</p>
+                        <div class="resume-file-actions">
+                            <a href="../static/resume.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-eye me-2"></i>View PDF
+                            </a>
+                            <a href="../static/resume.pdf" class="btn btn-outline-primary" download>
+                                <i class="fas fa-download me-2"></i>Download
+                            </a>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-6">
+                    <div class="resume-file-card reveal">
+                        <div class="resume-file-badge archive">Archive</div>
+                        <div class="resume-file-icon"><i class="fas fa-file-archive"></i></div>
+                        <h3>Previous Resume</h3>
+                        <p>Earlier version kept for reference — useful for comparing how my profile has evolved.</p>
+                        <div class="resume-file-actions">
+                            <a href="../static/resume-old.pdf" class="btn btn-outline-primary" target="_blank" rel="noopener noreferrer">
+                                <i class="fas fa-eye me-2"></i>View PDF
+                            </a>
+                            <a href="../static/resume-old.pdf" class="btn btn-outline-primary" download>
+                                <i class="fas fa-download me-2"></i>Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-redirect reveal">
+                <p>Looking for projects, experience, or education details?</p>
+                <a href="../index.html" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-home me-2"></i>Explore the Home Page
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+    <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p>&copy; 2025 Varun K S. All rights reserved.</p>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p>&copy; 2026 Varun K S. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-links">
-                        <a href="https://linkedin.com/in/varun-ks" target="_blank" class="me-3"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/varunks04" target="_blank" class="me-3"><i class="fab fa-github"></i></a>
-                        <a href="mailto:ksvarun20044@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/varun-ks-091b56242/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/varunks04" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://leetcode.com/u/varunks004/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+                        <a href="mailto:ksvarun20044@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>

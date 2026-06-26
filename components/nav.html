@@ -1,104 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        /* Navigation Styles */
-        .navbar {
-            backdrop-filter: blur(10px);
-            background-color: rgba(33, 37, 41, 0.95) !important;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            color: #fff !important;
-        }
-        
-        .navbar-brand:hover {
-            transform: scale(1.05);
-            color: #8b5cf6 !important;
-        }
-        
-        .navbar-nav .nav-link {
-            transition: all 0.3s ease;
-            position: relative;
-            font-weight: 500;
-            color: #fff !important;
-            margin: 0 5px;
-            padding: 10px 15px !important;
-        }
-        
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #6366f1, #8b5cf6);
-            transition: width 0.3s ease;
-        }
-        
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link:focus {
-            color: #8b5cf6 !important;
-        }
-        
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 80%;
-        }
-        
-        .navbar-nav .nav-link.active {
-            color: #8b5cf6 !important;
-            font-weight: 600;
-        }
-        
-        .navbar-toggler {
-            border: none;
-            padding: 4px 8px;
-        }
-        
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
-        
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-            filter: invert(1);
-        }
-        
-        /* Animation for mobile menu */
-        @media (max-width: 991.98px) {
-            .navbar-collapse {
-                background: rgba(33, 37, 41, 0.98);
-                border-radius: 10px;
-                margin-top: 10px;
-                padding: 20px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .navbar-nav .nav-link {
-                text-align: center;
-                margin: 5px 0;
-                border-radius: 8px;
-                transition: all 0.3s ease;
-            }
-            
-            .navbar-nav .nav-link:hover {
-                background: rgba(139, 92, 246, 0.1);
-            }
-        }
-    </style>
-</head>
-<body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top" aria-label="Main navigation">
         <div class="container">
             <a class="navbar-brand" href="#" id="brand-link">VARUN K S</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,6 +12,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="about-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="experience-link">Experience</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="skills-link">Skills</a>
@@ -133,55 +37,49 @@
     </nav>
 
     <script>
-        // Navigation link configuration based on current page
         function configureNavigation() {
             const currentPath = window.location.pathname;
             const isIndexPage = currentPath.includes('index.html') || currentPath.endsWith('/') || currentPath.endsWith('/My-Portfolio');
             const isInPagesFolder = currentPath.includes('/pages/');
-            
-            // Determine the base path for links
+
             const basePath = isInPagesFolder ? '../' : './';
             const pagesPath = isInPagesFolder ? './' : './pages/';
-            
-            // Configure brand link
+
             const brandLink = document.getElementById('brand-link');
             if (brandLink) brandLink.href = basePath + 'index.html';
-            
-            // Configure navigation links
-            const homeLink = document.getElementById('home-link');
-            const aboutLink = document.getElementById('about-link');
-            const skillsLink = document.getElementById('skills-link');
-            const educationLink = document.getElementById('education-link');
-            const projectsLink = document.getElementById('projects-link');
-            const resumeLink = document.getElementById('resume-link');
-            const contactLink = document.getElementById('contact-link');
-            
-            if (homeLink) homeLink.href = basePath + 'index.html';
-            if (aboutLink) aboutLink.href = basePath + 'index.html#about';
-            if (skillsLink) skillsLink.href = basePath + 'index.html#skills';
-            if (educationLink) educationLink.href = basePath + 'index.html#education';
-            if (projectsLink) projectsLink.href = pagesPath + 'projects.html';
-            if (resumeLink) resumeLink.href = pagesPath + 'resume.html';
-            if (contactLink) contactLink.href = pagesPath + 'contact.html';
-            
-            // Set active link based on current page
-            const links = document.querySelectorAll('.nav-link');
-            links.forEach(link => link.classList.remove('active'));
-            
-            if (currentPath.includes('projects.html') && projectsLink) {
-                projectsLink.classList.add('active');
-            } else if (currentPath.includes('resume.html') && resumeLink) {
-                resumeLink.classList.add('active');
-            } else if (currentPath.includes('contact.html') && contactLink) {
-                contactLink.classList.add('active');
-            } else if ((isIndexPage || currentPath.includes('index.html')) && homeLink) {
-                homeLink.classList.add('active');
+
+            const links = {
+                home: document.getElementById('home-link'),
+                about: document.getElementById('about-link'),
+                experience: document.getElementById('experience-link'),
+                skills: document.getElementById('skills-link'),
+                education: document.getElementById('education-link'),
+                projects: document.getElementById('projects-link'),
+                resume: document.getElementById('resume-link'),
+                contact: document.getElementById('contact-link')
+            };
+
+            if (links.home) links.home.href = basePath + 'index.html#about';
+            if (links.about) links.about.href = basePath + 'index.html#about';
+            if (links.experience) links.experience.href = basePath + 'index.html#experience';
+            if (links.skills) links.skills.href = basePath + 'index.html#skills';
+            if (links.education) links.education.href = basePath + 'index.html#education';
+            if (links.projects) links.projects.href = pagesPath + 'projects.html';
+            if (links.resume) links.resume.href = pagesPath + 'resume.html';
+            if (links.contact) links.contact.href = pagesPath + 'contact.html';
+
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+
+            if (currentPath.includes('projects.html') && links.projects) {
+                links.projects.classList.add('active');
+            } else if (currentPath.includes('resume.html') && links.resume) {
+                links.resume.classList.add('active');
+            } else if (currentPath.includes('contact.html') && links.contact) {
+                links.contact.classList.add('active');
+            } else if ((isIndexPage || currentPath.includes('index.html')) && links.home) {
+                links.home.classList.add('active');
             }
         }
-        
-        // Initialize navigation when this script runs
-        // Add a small delay to ensure DOM is ready
+
         setTimeout(configureNavigation, 10);
     </script>
-</body>
-</html>

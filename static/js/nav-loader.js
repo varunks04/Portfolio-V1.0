@@ -93,7 +93,7 @@ function createFallbackNavigation() {
     const pagesPath = isInPagesFolder ? './' : './pages/';
     
     const fallbackNav = `
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="${basePath}index.html">VARUN K S</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -103,6 +103,7 @@ function createFallbackNavigation() {
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="${basePath}index.html#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="${basePath}index.html#experience">Experience</a></li>
                         <li class="nav-item"><a class="nav-link" href="${basePath}index.html#skills">Skills</a></li>
                         <li class="nav-item"><a class="nav-link" href="${basePath}index.html#education">Education</a></li>
                         <li class="nav-item"><a class="nav-link" href="${pagesPath}projects.html">Projects</a></li>

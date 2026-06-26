@@ -43,22 +43,23 @@ Snapshots
 ## Project Structure
 
 ```
-portfolio/
+My-Portfolio/
+├── index.html
 ├── pages/
-│   ├── index.html
 │   ├── projects.html
 │   ├── resume.html
 │   └── contact.html
+├── components/
+│   └── nav.html
 ├── static/
 │   ├── css/
 │   │   └── style.css
 │   ├── js/
+│   │   ├── nav-simple.js
+│   │   ├── nav-loader.js
 │   │   └── script.js
-│   ├── images/
-│   │   ├── placement-system.jpg
-│   │   └── trading-bot.jpg
 │   ├── varun.jpg
-│   └── Resume.pdf
+│   └── resume.pdf
 └── README.md
 ```
 
@@ -72,15 +73,13 @@ portfolio/
 ### Running the Website
 
 #### Method 1: Direct Browser Opening
-1. Navigate to the `pages` directory
-2. Double-click on `index.html` to open in your default browser
+1. Open `index.html` in your browser from the project root
 
 #### Method 2: Using Python's HTTP Server
 1. Open terminal/command prompt
 2. Navigate to the project directory
-3. Run the following command:
+3. Run:
    ```bash
-   cd pages
    python -m http.server 8000
    ```
 4. Open your browser and visit `http://localhost:8000`
@@ -106,7 +105,7 @@ portfolio/
 ### Changing Personal Information
 1. Update contact information in all HTML files
 2. Replace `static/varun.jpg` with your profile picture
-3. Update `static/Resume.pdf` with your current resume
+3. Update `static/resume.pdf` with your current resume
 
 ## Contributing
 
@@ -119,5 +118,7 @@ This project is open source and available under the [MIT License](LICENSE).
 ## Contact
 
 Varun K S
-- LinkedIn: [linkedin.com/in/varun-ks](https://linkedin.com/in/varun-ks)
-- GitHub: [github.com/varunks04](https://github.com/varunks04) 
+- Email: [ksvarun20044@gmail.com](mailto:ksvarun20044@gmail.com)
+- LinkedIn: [linkedin.com/in/varun-ks-091b56242](https://www.linkedin.com/in/varun-ks-091b56242/)
+- GitHub: [github.com/varunks04](https://github.com/varunks04)
+- LeetCode: [leetcode.com/u/varunks004](https://leetcode.com/u/varunks004/)

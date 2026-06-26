@@ -1,741 +1,305 @@
-<!-- This is the main HTML template for the portfolio website of Varun K S -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Varun K S | Portfolio</title>
+    <meta name="description" content="Varun K S — Software Engineer and AI Developer building backend systems, LLM-powered products, and scalable intelligent applications.">
+    <meta property="og:description" content="Software Engineer and AI Developer focused on backend systems, automation, and practical AI-powered products.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://my-portfolio-delta-ebon-77.vercel.app/">
+    <meta name="author" content="Varun K S">
+    <meta property="og:title" content="Varun K S | Software Engineer &amp; AI Developer">
+    <title>Varun K S | Software Engineer &amp; AI Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="static/css/style.css">
-    <style>
-        /* Global Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes fadeInRight {
-            from {
-                opacity: 0;
-                transform: translateX(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* Smooth scrolling and general animations */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Enhanced Section Animations */
-        .section-heading {
-            animation: fadeInUp 0.8s ease-out;
-            position: relative;
-        }
-        
-        .section-heading::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #089df4, #1f06d5);
-            border-radius: 2px;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-        
-        /* About Section Enhancements */
-        .profile-image-container {
-            animation: fadeInLeft 0.8s ease-out;
-        }
-        
-        .profile-image {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 4px solid #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .profile-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .about-content {
-            animation: fadeInRight 0.8s ease-out;
-        }
-        
-        .contact-info div {
-            animation: fadeInUp 0.6s ease-out;
-            animation-fill-mode: both;
-            transition: transform 0.3s ease;
-        }
-        
-        .contact-info div:nth-child(1) { animation-delay: 0.1s; }
-        .contact-info div:nth-child(2) { animation-delay: 0.2s; }
-        .contact-info div:nth-child(3) { animation-delay: 0.3s; }
-        .contact-info div:nth-child(4) { animation-delay: 0.4s; }
-        
-        .contact-info div:hover {
-            transform: translateX(5px);
-        }
-        
-        .social-icon {
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-3px);
-            animation: pulse 1s infinite;
-        }
-        
-        /* Education Section Enhancements */
-        .education-card {
-            animation: fadeInUp 0.8s ease-out;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-        }
-        
-        .education-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
-        }
-        
-        .education-header h3 {
-            background: linear-gradient(135deg, #0205ba, #076b7c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        /* Technical Skills Section Styling */
-        .technical-skills {
-            background: linear-gradient(135deg, #f7f7f7 0%, #f7f7f9 100%);
-            color: white;
-            padding: 80px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .technical-skills::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23e2e8f0" stroke-width="0.5" opacity="0.3"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.1;
-        }
-        
-        .technical-skills h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 60px;
-            color: #000000;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .skill-card {
-            background: white;
-            border-radius: 20px;
-            padding: 30px 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            animation: fadeInUp 0.6s ease-out;
-            animation-fill-mode: both;
-        }
-        
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-        
-        .skill-card:hover::before {
-            left: 100%;
-        }
-        
-        .skill-card:nth-child(1) { animation-delay: 0.1s; }
-        .skill-card:nth-child(2) { animation-delay: 0.2s; }
-        .skill-card:nth-child(3) { animation-delay: 0.3s; }
-        .skill-card:nth-child(4) { animation-delay: 0.4s; }
-        .skill-card:nth-child(5) { animation-delay: 0.5s; }
-        .skill-card:nth-child(6) { animation-delay: 0.6s; }
-        
-        .skill-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-        }
-        
-        .skill-card-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #f1f5f9;
-            position: relative;
-        }
-        
-        .skill-card-header::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #112ab8, #0e5a78);
-            transition: width 0.3s ease;
-        }
-        
-        .skill-card:hover .skill-card-header::after {
-            width: 100%;
-        }
-        
-        .skill-card-header i {
-            font-size: 1.5rem;
-            color: #010109;
-            margin-right: 10px;
-            transition: transform 0.3s ease;
-        }
-        
-        .skill-card:hover .skill-card-header i {
-            transform: rotate(360deg);
-        }
-        
-        .skill-card-header h4 {
-            color: #1e293b;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin: 0;
-        }
-        
-        .skill-items {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 20px 10px;
-            border-radius: 12px;
-            background: #f8fafc;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .skill-item:hover::before {
-            opacity: 1;
-        }
-        
-        .skill-item:hover {
-            background: #e2e8f0;
-            transform: translateY(-5px);
-        }
-        
-        .skill-icon {
-            width: 48px;
-            height: 48px;
-            background: #6366f1;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .skill-item:hover .skill-icon {
-            transform: scale(1.1) rotateY(180deg);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-        }
-        
-        .skill-icon.python { background: #3776ab; }
-        .skill-icon.cpp { background: #00599c; }
-        .skill-icon.c { background: #a8b9cc; }
-        .skill-icon.dsa { background: #ff6b6b; }
-        .skill-icon.oop { background: #4ecdc4; }
-        .skill-icon.os { background: #45b7d1; }
-        .skill-icon.dbms { background: #96ceb4; }
-        .skill-icon.pandas { background: #150458; }
-        .skill-icon.numpy { background: #013243; }
-        .skill-icon.matplotlib { background: #11557c; }
-        .skill-icon.seaborn { background: #444444; }
-        .skill-icon.mysql { background: #4479a1; }
-        .skill-icon.postgresql { background: #336791; }
-        .skill-icon.sqlite { background: #003b57; }
-        .skill-icon.flask { background: #000; }
-        .skill-icon.rest { background: #61dafb; }
-        .skill-icon.git { background: #f05032; }
-        .skill-icon.linux { background: #fcc624; }
-        .skill-icon.vscode { background: #007acc; }
-        .skill-icon.jupyter { background: #f37626; }
-        
-        .skill-name {
-            color: #334155;
-            font-size: 0.9rem;
-            font-weight: 500;
-            line-height: 1.2;
-            position: relative;
-            z-index: 1;
-            transition: color 0.3s ease;
-        }
-        
-        .skill-item:hover .skill-name {
-            color: #1e293b;
-            font-weight: 600;
-        }
-        
-        /* Certifications Section Enhancements */
-        .certification-item {
-            animation: fadeInUp 0.8s ease-out;
-            animation-fill-mode: both;
-            transition: all 0.3s ease;
-            padding: 25px;
-            border-radius: 15px;
-            background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
-            border: 1px solid rgba(99, 102, 241, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .certification-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(135deg, #0b46a4, #0f22b5);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-        
-        .certification-item:hover::before {
-            transform: scaleY(1);
-        }
-        
-        .certification-item:nth-child(1) { animation-delay: 0.1s; }
-        .certification-item:nth-child(2) { animation-delay: 0.2s; }
-        .certification-item:nth-child(3) { animation-delay: 0.3s; }
-        
-        .certification-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        
-        .certification-item h4 {
-            background: linear-gradient(135deg, #130cdc, #081eae);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: all 0.3s ease;
-        }
-        
-        /* Navigation Enhancements */
-        .navbar {
-            backdrop-filter: blur(10px);
-            background-color: rgba(33, 37, 41, 0.95) !important;
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-nav .nav-link {
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #0b0d92, #0826d0);
-            transition: width 0.3s ease;
-        }
-        
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 80%;
-        }
-        
-        .navbar-brand {
-            transition: all 0.3s ease;
-        }
-        
-        .navbar-brand:hover {
-            transform: scale(1.05);
-            color: #1033b1 !important;
-        }
-        
-        /* Footer Enhancements */
-        footer {
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%) !important;
-        }
-        
-        .footer-links a {
-            transition: all 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            transform: translateY(-2px);
-            color: #1033b1 !important;
-        }
-        
-        /* Responsive Animations */
-        @media (max-width: 768px) {
-            .skill-items {
-                grid-template-columns: 1fr;
-            }
-            .technical-skills h2 {
-                font-size: 2rem;
-            }
-            .skill-card:hover {
-                transform: translateY(-5px) scale(1.01);
-            }
-        }
-        
-        /* Page load animation */
-        body {
-            animation: fadeInUp 0.5s ease-out;
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation Container -->
     <div id="navigation-container"></div>
 
-    <!-- About Section -->
-    <section id="about" class="py-5 mt-5">
+    <!-- Unified Introduction -->
+    <section id="about" class="intro-section">
+        <div class="intro-bg" aria-hidden="true">
+            <svg class="intro-grid" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(37,99,235,0.06)" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)"/>
+            </svg>
+        </div>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center mb-4">
-                    <h2 class="section-heading">ABOUT ME</h2>
-                    <hr class="divider">
-                </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-center">
-                    <div class="profile-image-container">
-                        <img src="static/varun.jpg" alt="Varun K S" class="img-fluid rounded-circle profile-image">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5 reveal">
+                    <div class="profile-frame">
+                        <div class="profile-ring" aria-hidden="true"></div>
+                        <img src="static/varun.jpg" alt="Varun K S — Software Engineer" class="profile-image" width="300" height="300">
+                        <span class="profile-status">
+                            <span class="status-dot status-dot-active"></span> Enhancing Smara AI
+                        </span>
                     </div>
                 </div>
-                <div class="col-lg-8">
-                    <div class="about-content">
-                        <p class="lead">Computer Science student passionate about Software and AI Engineering, with a solid foundation in Python, C++, Data Structures, and backend development. Experienced in building real-time, user-focused applications with clean, efficient, and modular code. Driven by a love for intelligent systems, problem-solving, and building impactful tech solutions.</p>
-                        <div class="contact-info">
-                            <div><i class="fas fa-map-marker-alt"></i> Bangalore, India</div>
-                            <div><i class="fas fa-envelope"></i> ksvarun20044@gmail.com</div>
-                            <div><i class="fas fa-phone"></i> +91 9611581352</div>
-                            <div class="social-links mt-3">
-                                <a href="https://linkedin.com/in/varun-ks" target="_blank" class="social-icon">
-                                    <i class="fab fa-linkedin fa-2x"></i>
-                                </a>
-                                <a href="https://github.com/varunks04" target="_blank" class="social-icon">
-                                    <i class="fab fa-github fa-2x"></i>
-                                </a>
-                            </div>
-                        </div>
+                <div class="col-lg-7 reveal reveal-delay-1">
+                    <p class="intro-greeting">Hello, I'm</p>
+                    <h1 class="intro-name">Varun K S</h1>
+                    <p class="intro-role">Software Engineer · AI Developer</p>
+                    <p class="intro-summary">I design backend systems and build AI-powered products — conversational engines, recommendation platforms, and intelligent tools that automate real workflows.</p>
+                    <p class="intro-detail">My work sits at the intersection of scalable software architecture, LLM integration, and production engineering. I've led an 11-member team shipping RecommendMe, published the AlgoNest open-source library, and I'm currently deepening Smara AI Diary with stronger voice, memory, and insight capabilities.</p>
+                    <div class="intro-meta">
+                        <span class="meta-pill"><i class="fas fa-map-marker-alt"></i> Bengaluru, India</span>
+                        <span class="meta-pill"><i class="fas fa-graduation-cap"></i> B.E. CSE Graduate · 2026</span>
+                    </div>
+                    <div class="intro-actions">
+                        <a href="pages/projects.html" class="btn btn-primary">
+                            <i class="fas fa-folder-open me-2"></i>View Projects
+                        </a>
+                        <a href="pages/contact.html" class="btn btn-outline-primary">
+                            <i class="fas fa-paper-plane me-2"></i>Get in Touch
+                        </a>
+                        <a href="static/resume.pdf" class="btn btn-outline-primary" download>
+                            <i class="fas fa-download me-2"></i>CV
+                        </a>
+                    </div>
+                    <div class="intro-social">
+                        <a href="https://www.linkedin.com/in/varun-ks-091b56242/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/varunks04" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://leetcode.com/u/varunks004/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fas fa-code"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-5 bg-light">
+    <!-- Experience Timeline -->
+    <section id="experience" class="section section-alt">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center mb-4">
-                    <h2 class="section-heading">EDUCATION</h2>
-                    <hr class="divider">
+            <div class="section-header reveal">
+                <h2 class="section-heading">Experience</h2>
+                <hr class="divider">
+                <p class="section-subtitle">Where I've led teams, owned architecture, and delivered working systems.</p>
+            </div>
+            <div class="timeline">
+                <article class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-card-top">
+                            <div>
+                                <span class="timeline-date">Feb 2026 – May 2026</span>
+                                <h3>Lead Software Engineering Intern</h3>
+                                <p class="timeline-company">Genesis Training and Consulting Service Pvt Ltd</p>
+                            </div>
+                            <div class="impact-metrics">
+                                <div class="metric"><span class="metric-value">11</span><span class="metric-label">Team Size</span></div>
+                                <div class="metric"><span class="metric-value">Lead</span><span class="metric-label">Role</span></div>
+                            </div>
+                        </div>
+                        <p class="timeline-project">RecommendMe — AI-Powered Product Recommendation System</p>
+                        <ul class="timeline-highlights">
+                            <li>Led sprint planning, task allocation, and code reviews across an Agile engineering team.</li>
+                            <li>Designed system architecture: FastAPI backend, JWT auth, and API workflows.</li>
+                            <li>Built conversational AI with persistent context for smarter product recommendations.</li>
+                            <li>Integrated OpenAI, Ollama, and SerpAPI for real-time product data.</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="badge">Python</span>
+                            <span class="badge">FastAPI</span>
+                            <span class="badge">React</span>
+                            <span class="badge">OpenAI API</span>
+                            <span class="badge">JWT</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="timeline-item reveal">
+                    <div class="timeline-marker">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="timeline-card">
+                        <div class="timeline-card-top">
+                            <div>
+                                <span class="timeline-date">Nov 2025 – Jan 2026</span>
+                                <h3>C/C++ Programming Intern</h3>
+                                <p class="timeline-company">Cognifyz Technologies</p>
+                            </div>
+                            <div class="impact-metrics">
+                                <div class="metric"><span class="metric-value">C++17</span><span class="metric-label">Standard</span></div>
+                                <div class="metric"><span class="metric-value">Bias</span><span class="metric-label">Correction Engine</span></div>
+                            </div>
+                        </div>
+                        <p class="timeline-project">CrossBench — AI Model Leaderboard Aggregator</p>
+                        <ul class="timeline-highlights">
+                            <li>Built ranking engine with bias correction, confidence scoring, and recency-aware rankings.</li>
+                            <li>Automated benchmark data collection with retry logic and validation.</li>
+                            <li>Designed interactive dashboard with charts and HTML/JSON/CSV export.</li>
+                        </ul>
+                        <div class="tech-stack">
+                            <span class="badge">C++</span>
+                            <span class="badge">WinHTTP</span>
+                            <span class="badge">Chart.js</span>
+                            <span class="badge">TailwindCSS</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-heading">Technical Skills</h2>
+                <hr class="divider">
+                <p class="section-subtitle">Languages, frameworks, and engineering practices I use to build and ship software.</p>
+            </div>
+
+            <div class="skills-categories">
+                <div class="skills-category reveal">
+                    <h4 class="skills-category-title"><i class="fas fa-code"></i> Programming Languages</h4>
+                    <div class="skills-icon-grid">
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" width="36" height="36"><span>Python</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-plain.svg" alt="" width="36" height="36"><span>C++</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-plain.svg" alt="" width="36" height="36"><span>C</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg" alt="" width="36" height="36"><span>SQL</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-category reveal">
+                    <h4 class="skills-category-title"><i class="fas fa-server"></i> Backend Development</h4>
+                    <div class="skills-icon-grid">
+                        <div class="skill-icon-tile"><img src="https://cdn.simpleicons.org/fastapi/009688" alt="" width="36" height="36"><span>FastAPI</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="" width="36" height="36"><span>Flask</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-plug"></i><span>REST APIs</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-link"></i><span>API Integration</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-shield-alt"></i><span>Authentication</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-user-lock"></i><span>RBAC</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-category reveal">
+                    <h4 class="skills-category-title"><i class="fas fa-robot"></i> AI &amp; LLM Engineering</h4>
+                    <div class="skills-icon-grid">
+                        <div class="skill-icon-tile"><img src="https://cdn.simpleicons.org/openai/412991" alt="" width="36" height="36"><span>OpenAI API</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-brain"></i><span>LLM Integration</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-comment-dots"></i><span>Prompt Engineering</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-project-diagram"></i><span>AI Workflows</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-magic"></i><span>AI-Assisted Dev</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-chart-line"></i><span>Sentiment Analysis</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-category reveal">
+                    <h4 class="skills-category-title"><i class="fas fa-database"></i> Data &amp; Databases</h4>
+                    <div class="skills-icon-grid">
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="" width="36" height="36"><span>Pandas</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="" width="36" height="36"><span>NumPy</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg" alt="" width="36" height="36"><span>PostgreSQL</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-sitemap"></i><span>Database Design</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-category reveal">
+                    <h4 class="skills-category-title"><i class="fas fa-vial"></i> Testing &amp; Quality</h4>
+                    <div class="skills-icon-grid">
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytest/pytest-original.svg" alt="" width="36" height="36"><span>pytest</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-check-double"></i><span>Unit Testing</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-bug"></i><span>Debugging</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-search"></i><span>Code Review</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-category reveal">
+                    <h4 class="skills-category-title"><i class="fas fa-sitemap"></i> Software Design &amp; Architecture</h4>
+                    <div class="skills-icon-grid">
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-cubes"></i><span>OOP</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-layer-group"></i><span>SOLID</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-th-large"></i><span>Modular Architecture</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-puzzle-piece"></i><span>Design Patterns</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-drafting-compass"></i><span>Software Architecture</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-category reveal">
+                    <h4 class="skills-category-title"><i class="fas fa-brain"></i> CS Fundamentals</h4>
+                    <div class="skills-icon-grid">
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-project-diagram"></i><span>DSA</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-desktop"></i><span>Operating Systems</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-database"></i><span>DBMS</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-network-wired"></i><span>Computer Networks</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-server"></i><span>System Design</span></div>
+                    </div>
+                </div>
+
+                <div class="skills-category reveal">
+                    <h4 class="skills-category-title"><i class="fas fa-tools"></i> Tools, Platforms &amp; Practices</h4>
+                    <div class="skills-icon-grid">
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-plain.svg" alt="" width="36" height="36"><span>Linux</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" width="36" height="36"><span>Git</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" width="36" height="36"><span>GitHub</span></div>
+                        <div class="skill-icon-tile"><img src="https://cdn.simpleicons.org/streamlit/FF4B4B" alt="" width="36" height="36"><span>Streamlit</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-sync-alt"></i><span>Agile</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-code-branch"></i><span>Version Control</span></div>
+                        <div class="skill-icon-tile skill-icon-fa"><i class="fas fa-users"></i><span>Collaborative Dev</span></div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="education-card">
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section section-alt">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2 class="section-heading">Education</h2>
+                <hr class="divider">
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="education-card reveal">
                         <div class="education-header">
                             <h3>JSS Academy of Technical Education</h3>
-                            <span class="education-date">Expected Graduation: July 2026</span>
+                            <span class="education-date">2022 – 2026</span>
                         </div>
-                        <p class="education-degree">BE in Computer Science and Engineering</p>
-                        <p class="education-gpa">CGPA: 7.91 (Till 6th semester)</p>
+                        <p class="education-degree">B.E. — Computer Science &amp; Engineering · Graduated 2026</p>
+                        <p class="education-gpa">CGPA: 8.17</p>
+                        <ul class="education-highlights">
+                            <li>1st place — Kabaddi, Verve Cup (annual college sports festival)</li>
+                            <li>3rd place — Bug Busters debugging competition</li>
+                            <li>Social Services Coordinator, National Service Scheme (2023 – 2025)</li>
+                        </ul>
+                        <button type="button" class="education-link education-toggle" id="education-toggle" aria-expanded="false" aria-controls="education-full">
+                            Full education history <i class="fas fa-chevron-down ms-1 toggle-icon"></i>
+                        </button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="technical-skills">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center mb-5">
-                    <h2>TECHNICAL SKILLS</h2>
-                </div>
-            </div>
-            <div class="row">
-                <!-- Programming Languages -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-card">
-                        <div class="skill-card-header">
-                            <i class="fas fa-code"></i>
-                            <h4>Programming Languages</h4>
+                    <div class="education-full collapse" id="education-full">
+                        <div class="education-card">
+                            <div class="education-header">
+                                <h4>Mahesh Gouthama Siddhartha PU College, Bengaluru</h4>
+                                <span class="education-date">2020 – 2022</span>
+                            </div>
+                            <p class="education-degree">Pre-University (Class XI &amp; XII) — Science</p>
+                            <ul class="education-highlights">
+                                <li>Class Representative for both PU1 and PU2</li>
+                                <li>State Board: 85.5% · KCET Rank: 10,409</li>
+                            </ul>
                         </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-icon python">
-                                    <i class="fab fa-python"></i>
-                                </div>
-                                <div class="skill-name">Python</div>
+                        <div class="education-card">
+                            <div class="education-header">
+                                <h4>St. Mira's High School</h4>
+                                <span class="education-date">2010 – 2020</span>
                             </div>
-                            <div class="skill-item">
-                                <div class="skill-icon cpp">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <div class="skill-name">C++</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon c">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <div class="skill-name">C</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Core CS Concepts -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-card">
-                        <div class="skill-card-header">
-                            <i class="fas fa-brain"></i>
-                            <h4>Core CS Concepts</h4>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-icon dsa">
-                                    <i class="fas fa-project-diagram"></i>
-                                </div>
-                                <div class="skill-name">Data Structures & Algorithms</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon oop">
-                                    <i class="fas fa-cubes"></i>
-                                </div>
-                                <div class="skill-name">Object Oriented Programming</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon dbms">
-                                    <i class="fas fa-database"></i>
-                                </div>
-                                <div class="skill-name">Database Management Systems</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon os">
-                                    <i class="fas fa-desktop"></i>
-                                </div>
-                                <div class="skill-name">Operating Systems</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Python Libraries & Frameworks -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-card">
-                        <div class="skill-card-header">
-                            <i class="fab fa-python"></i>
-                            <h4>Python Libraries & Frameworks</h4>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-icon pandas">
-                                    <i class="fas fa-table"></i>
-                                </div>
-                                <div class="skill-name">Pandas</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon numpy">
-                                    <i class="fas fa-calculator"></i>
-                                </div>
-                                <div class="skill-name">NumPy</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon matplotlib">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <div class="skill-name">Matplotlib</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon seaborn">
-                                    <i class="fas fa-chart-area"></i>
-                                </div>
-                                <div class="skill-name">Seaborn</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Databases -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-card">
-                        <div class="skill-card-header">
-                            <i class="fas fa-database"></i>
-                            <h4>Databases</h4>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-icon mysql">
-                                    <i class="fas fa-database"></i>
-                                </div>
-                                <div class="skill-name">MySQL</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon postgresql">
-                                    <i class="fas fa-elephant"></i>
-                                </div>
-                                <div class="skill-name">PostgreSQL</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon sqlite">
-                                    <i class="fas fa-database"></i>
-                                </div>
-                                <div class="skill-name">SQLite</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Backend Development -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-card">
-                        <div class="skill-card-header">
-                            <i class="fas fa-server"></i>
-                            <h4>Backend Development</h4>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-icon flask">
-                                    <i class="fas fa-flask"></i>
-                                </div>
-                                <div class="skill-name">Flask</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon rest">
-                                    <i class="fas fa-exchange-alt"></i>
-                                </div>
-                                <div class="skill-name">REST APIs</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tools & Platforms -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="skill-card">
-                        <div class="skill-card-header">
-                            <i class="fas fa-tools"></i>
-                            <h4>Tools & Platforms</h4>
-                        </div>
-                        <div class="skill-items">
-                            <div class="skill-item">
-                                <div class="skill-icon git">
-                                    <i class="fab fa-git-alt"></i>
-                                </div>
-                                <div class="skill-name">Git & GitHub</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon linux">
-                                    <i class="fab fa-linux"></i>
-                                </div>
-                                <div class="skill-name">Linux</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon vscode">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <div class="skill-name">VS Code</div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-icon jupyter">
-                                    <i class="fas fa-book"></i>
-                                </div>
-                                <div class="skill-name">Jupyter Notebooks</div>
-                            </div>
+                            <p class="education-degree">ICSE Board (Class I – X)</p>
+                            <ul class="education-highlights">
+                                <li>ICSE Board (Class X): 90.8%</li>
+                                <li>Elected House Captain of the Yellow House</li>
+                                <li>School Cricket Club — KSCA-affiliated U-14 and U-16 matches</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -743,49 +307,68 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="py-5 bg-light">
+    <!-- Certifications -->
+    <section id="certifications" class="section">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center mb-4">
-                    <h2 class="section-heading">CERTIFICATIONS</h2>
-                    <hr class="divider">
-                </div>
+            <div class="section-header reveal">
+                <h2 class="section-heading">Certifications</h2>
+                <hr class="divider">
             </div>
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="certification-item mb-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="certification-item reveal">
+                        <h4>Startup School: Prompt to Prototype</h4>
+                        <p class="certification-provider">Google (via Scaler) · December 2025</p>
+                        <p>Prototype development with Gemini, Imagen, and Veo in AI Studio.</p>
+                    </div>
+                    <div class="certification-item reveal">
                         <h4>Meta Database Engineer Professional Certificate</h4>
-                        <p class="certification-provider">Meta, Virtual (Mar 2025)</p>
-                        <p>Covered SQL, Data Modeling, Indexing, Query Optimization, Python for automation, and real-world DB projects.</p>
+                        <p class="certification-provider">Meta (via Coursera) · March 2025</p>
+                        <p>SQL, Python, Django, data modeling, and database engineering capstone.</p>
+                        <a href="https://www.coursera.org/account/accomplishments/professional-cert/certificate/ZWRW3H8E2WTL" target="_blank" rel="noopener noreferrer" class="cert-link"><i class="fas fa-external-link-alt"></i> View Credential</a>
                     </div>
-                    <div class="certification-item mb-4">
+                    <div class="certification-item reveal">
                         <h4>100 Days of Code: Complete Python Pro Bootcamp</h4>
-                        <p class="certification-provider">Udemy, Virtual (Mar 2025)</p>
-                        <p>Hands-on Python training including Web Development, Automation, APIs, Data Science, and ML with 100 projects.</p>
+                        <p class="certification-provider">Udemy</p>
+                        <p>100 project-driven days — Flask, automation, data science, and ML.</p>
+                        <a href="https://www.udemy.com/certificate/UC-3659729f-9579-4388-b2fd-fc683dcccb13/" target="_blank" rel="noopener noreferrer" class="cert-link"><i class="fas fa-external-link-alt"></i> View Credential</a>
                     </div>
-                    <div class="certification-item">
-                        <h4>Mastering Data Structures & Algorithms using C and C++</h4>
-                        <p class="certification-provider">Udemy, Virtual (Jan–Mar 2024)</p>
-                        <p>Focused on recursive problem-solving, sorting techniques, and in-depth implementation of data structures.</p>
+                    <div class="certification-item reveal">
+                        <h4>Mastering Data Structures &amp; Algorithms using C and C++</h4>
+                        <p class="certification-provider">Udemy · January – March 2024</p>
+                        <p>Core data structures, recursion, and sorting algorithm implementation in C and C++.</p>
+                        <a href="https://www.udemy.com/certificate/UC-02a27816-f79b-444d-8088-0e5f07705793/" target="_blank" rel="noopener noreferrer" class="cert-link"><i class="fas fa-external-link-alt"></i> View Credential</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-4">
+    <!-- CTA Band -->
+    <section class="cta-band reveal">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start">
-                    <p>&copy; 2025 Varun K S. All rights reserved.</p>
+            <div class="cta-band-inner">
+                <div>
+                    <h2>Let's build something.</h2>
+                    <p>Open to software engineering roles and meaningful collaborations.</p>
+                </div>
+                <a href="pages/contact.html" class="btn btn-primary btn-lg">Start a Conversation</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    <p>&copy; 2026 Varun K S. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-links">
-                        <a href="https://linkedin.com/in/varun-ks" target="_blank" class="me-3"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/varunks04" target="_blank" class="me-3"><i class="fab fa-github"></i></a>
-                        <a href="mailto:ksvarun20044@gmail.com"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/varun-ks-091b56242/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/varunks04" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://leetcode.com/u/varunks004/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><i class="fas fa-code"></i></a>
+                        <a href="mailto:ksvarun20044@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -796,4 +379,4 @@
     <script src="static/js/nav-simple.js"></script>
     <script src="static/js/script.js"></script>
 </body>
-</html> 
+</html>
